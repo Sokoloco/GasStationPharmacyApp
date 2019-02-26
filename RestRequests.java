@@ -17,17 +17,17 @@ public class RestRequests extends Activity {
 
     public JSONObject sendClient(JSONObject newClient,Context mContext){
         RequestQueue requestQueue = Volley.newRequestQueue(mContext);
-        String url = "http://ygjwz.mocklab.io/json/3";
+        String url = "http://ygjwz.mocklab.io/json/apptest";
         JSONObject catcher = new JSONObject();
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.POST, url, newClient, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d("The response","There has been a Response");
+                Log.e("REST response",response.toString());
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("Error sending message","There was an error sending the message");
+                Log.e("Rest Error",error.toString());
             }
         });
         requestQueue.add(objectRequest);
