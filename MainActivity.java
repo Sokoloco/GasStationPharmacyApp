@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import java.text.DateFormat;
 import java.util.Calendar;
 
@@ -17,12 +18,14 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         setContentView(R.layout.gestionclientes);
 
         Button dateBut = (Button)findViewById(R.id.dateButt);
+
         dateBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 String numTel = ((EditText)findViewById(R.id.numTelEditText)).getText().toString();
                 String history = ((EditText)findViewById(R.id.histEditText)).getText().toString();
                 Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_SHORT).show();
-                jHandler.createUser(name,lName,id,residence,bDate,numTel,history);
+                jHandler.createUser(name,lName,id,residence,bDate,numTel,history,getApplicationContext());
             }
         });
     }
